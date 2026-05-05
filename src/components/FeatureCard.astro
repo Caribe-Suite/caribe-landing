@@ -2,15 +2,17 @@
 interface Props {
     title: string;
     description: string;
-    icon: string;
+    icon: any; // Using any for the Lucide component
     items?: string[];
 }
 
-const { title, description, icon, items } = Astro.props;
+const { title, description, icon: Icon, items } = Astro.props;
 ---
 
 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-    <div class="text-4xl mb-4">{icon}</div>
+    <div class="text-blue-600 mb-4">
+        <Icon size={40} strokeWidth={1.5} />
+    </div>
     <h3 class="text-xl font-bold text-slate-800 mb-3">{title}</h3>
     <p class="text-slate-600 mb-4 leading-relaxed">
         {description}
@@ -18,11 +20,11 @@ const { title, description, icon, items } = Astro.props;
     {items && (
         <ul class="space-y-2">
             {items.map(item => (
-                <li class="flex items-center text-sm text-slate-500">
-                    <svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <li class="flex items-start text-sm text-slate-500">
+                    <svg class="w-4 h-4 mr-2 mt-0.5 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    {item}
+                    <span>{item}</span>
                 </li>
             ))}
         </ul>
