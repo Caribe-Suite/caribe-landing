@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Caribe Suite - Gestión Empresarial">
+	<main>
+		<Hero />
+		<Features />
+
+		<section class="bg-blue-50 py-20 px-4 text-center">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl font-bold text-slate-900 mb-6">¿Listo para transformar tu negocio?</h2>
+				<p class="text-lg text-slate-600 mb-8">
+					Nuestra infraestructura está pensada para que puedas utilizar casi cualquier dispositivo como terminal de venta o gestión, ofreciendo máxima flexibilidad y accesibilidad.
+				</p>
+				<button class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-colors shadow-xl">
+					Comenzar ahora
+				</button>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

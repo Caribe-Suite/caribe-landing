@@ -1,0 +1,62 @@
+---
+import FeatureCard from './FeatureCard.astro';
+
+const features = [
+    {
+        title: "Gestión de Inventario",
+        description: "Control completo de existencias y movimientos de mercancía.",
+        icon: "📦",
+        items: [
+            "Administración de productos, compras, ventas.",
+            "Ajustes y traslados.",
+            "Generación e impresión de documentos.",
+            "Producción y transformación."
+        ]
+    },
+    {
+        title: "Contabilidad",
+        description: "Registro de asientos contables automáticos y manuales.",
+        icon: "📊",
+        items: [
+            "Estados financieros en tiempo real.",
+            "Cuentas por cobrar y por pagar.",
+            "Configuración flexible del plan de cuentas."
+        ]
+    },
+    {
+        title: "Punto de Venta (POS)",
+        description: "Interfaz optimizada para ventas rápidas.",
+        icon: "🛒",
+        items: [
+            "Integración con múltiples métodos de pago.",
+            "Soporte para impresión de tickets y facturas.",
+            "Accesible desde cualquier dispositivo."
+        ]
+    },
+    {
+        title: "Control y Configuración",
+        description: "Administración detallada y puesta en marcha rápida.",
+        icon: "⚙️",
+        items: [
+            "Gestión de usuarios y roles.",
+            "Centros de costo, monedas y entidades.",
+            "Asistente de configuración inicial (Setup Wizard)."
+        ]
+    }
+];
+---
+
+<section id="features" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Características Principales</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map(feature => (
+                <FeatureCard {...feature} />
+            ))}
+        </div>
+    </div>
+</section>
