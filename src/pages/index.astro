@@ -54,11 +54,11 @@ const targets = [
 		<Hero />
 
 		<!-- Benefits Section -->
-		<section id="about" class="py-24 px-4 bg-white">
+		<section id="about" class="py-24 px-4 bg-slate-50 border-y border-slate-100">
 			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
 					<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider">Beneficios principales</h2>
-					<p class="text-slate-500 text-lg">Por qué cientos de negocios confían en nosotros</p>
+					<p class="text-slate-500 text-lg">Diseñado para impulsar la eficiencia de tu negocio</p>
 				</div>
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
 					{benefits.map(benefit => (
@@ -78,28 +78,43 @@ const targets = [
 
 		<Features />
 
-		<!-- Pricing Section -->
-		<section id="pricing" class="py-24 px-4 bg-slate-50 border-y border-slate-100">
+		<!-- Ideal For Section -->
+		<section class="py-24 px-4 bg-slate-50 border-y border-slate-100">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 uppercase tracking-wider">Ideal para</h2>
+				<div class="grid md:grid-cols-3 gap-8">
+					{targets.map(target => (
+						<div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+							<h3 class="text-xl font-bold text-slate-800 mb-3">{target.title}</h3>
+							<p class="text-slate-600 text-sm">{target.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section (Preview) -->
+		<section id="pricing" class="py-24 px-4 bg-white">
 			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
 					<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider">Planes de precios</h2>
 					<p class="text-slate-500 text-lg">Soluciones adaptadas a cada etapa de tu negocio</p>
 				</div>
 
-				<div class="relative">
+				<div class="relative max-w-5xl mx-auto">
 					<!-- Blur Overlay -->
-					<div class="absolute inset-0 z-10 bg-slate-50/50 backdrop-blur-[2px] flex items-center justify-center rounded-3xl">
-						<div class="bg-white px-8 py-4 rounded-2xl shadow-xl border border-slate-200 text-center transform -rotate-1">
-							<span class="text-slate-900 font-bold text-xl block">Próximamente</span>
-							<span class="text-slate-500 text-sm">Estamos afinando los detalles</span>
+					<div class="absolute inset-0 z-10 bg-white/40 backdrop-blur-[2px] flex items-center justify-center rounded-3xl">
+						<div class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl border border-slate-800 text-center transform -rotate-1">
+							<span class="font-bold text-xl block">Próximamente</span>
+							<span class="text-slate-400 text-sm">Estamos afinando los detalles</span>
 						</div>
 					</div>
 
-					<div class="grid md:grid-cols-3 gap-8 opacity-40 select-none grayscale">
+					<div class="grid md:grid-cols-3 gap-8 opacity-30 select-none grayscale">
 						<div class="bg-white p-8 rounded-3xl border border-slate-200">
 							<h3 class="text-xl font-bold mb-4">Básico</h3>
 							<div class="text-4xl font-bold mb-6">$00<span class="text-lg font-normal text-slate-400">/mes</span></div>
-							<ul class="space-y-3 mb-8">
+							<ul class="space-y-3 mb-8 text-left">
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> 1 Usuario</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Inventario limitado</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Ventas POS</li>
@@ -108,7 +123,7 @@ const targets = [
 						<div class="bg-white p-8 rounded-3xl border-2 border-slate-900 relative">
 							<h3 class="text-xl font-bold mb-4">Profesional</h3>
 							<div class="text-4xl font-bold mb-6">$00<span class="text-lg font-normal text-slate-400">/mes</span></div>
-							<ul class="space-y-3 mb-8">
+							<ul class="space-y-3 mb-8 text-left">
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> 5 Usuarios</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Inventario ilimitado</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Contabilidad completa</li>
@@ -117,7 +132,7 @@ const targets = [
 						<div class="bg-white p-8 rounded-3xl border border-slate-200">
 							<h3 class="text-xl font-bold mb-4">Empresarial</h3>
 							<div class="text-4xl font-bold mb-6">$00<span class="text-lg font-normal text-slate-400">/mes</span></div>
-							<ul class="space-y-3 mb-8">
+							<ul class="space-y-3 mb-8 text-left">
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Usuarios ilimitados</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Multi-sucursal</li>
 								<li class="flex items-center gap-2 text-slate-600"><CheckCircle2 size={18} /> Soporte dedicado</li>
@@ -128,33 +143,21 @@ const targets = [
 			</div>
 		</section>
 
-		<!-- Ideal For Section -->
-		<section class="py-24 px-4 bg-white border-y border-slate-100">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 uppercase tracking-wider">Ideal para</h2>
-				<div class="grid md:grid-cols-3 gap-8">
-					{targets.map(target => (
-						<div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
-							<h3 class="text-xl font-bold text-slate-800 mb-3">{target.title}</h3>
-							<p class="text-slate-600 text-sm">{target.description}</p>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-
 		<!-- Why Caribe Suite / CTA -->
-		<section class="bg-slate-900 py-24 px-4 text-white">
-			<div class="max-w-4xl mx-auto text-center">
+		<section class="bg-slate-900 py-24 px-4 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+                <img src="/mockup-1.png" alt="" class="w-full h-full object-cover grayscale" />
+            </div>
+			<div class="max-w-4xl mx-auto text-center relative z-10">
 				<h2 class="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight">Por qué elegir Caribe Suite</h2>
 				<p class="text-xl text-slate-300 mb-12 leading-relaxed">
 					Con Caribe Suite, tu empresa gana orden, eficiencia y control sin necesidad de conocimientos técnicos. Es la herramienta que convierte la gestión empresarial en una experiencia simple y poderosa.
 				</p>
 				<div class="flex flex-col md:flex-row items-center justify-center gap-6">
-					<button class="bg-white text-slate-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all shadow-xl active:scale-95 flex items-center gap-2">
+					<div class="bg-white text-slate-900 px-10 py-4 rounded-xl font-bold text-lg shadow-xl flex items-center gap-2">
 						<CheckCircle2 size={24} />
 						Próximamente
-					</button>
+					</div>
 					<p class="text-slate-400">Setup Wizard incluido en todos los planes</p>
 				</div>
 			</div>

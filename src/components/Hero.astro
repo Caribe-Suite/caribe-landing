@@ -1,56 +1,90 @@
 ---
+import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 ---
 
-<header class="bg-white border-b border-slate-100 py-16 md:py-24 px-4 overflow-hidden relative">
+<header class="bg-white border-b border-slate-100 pt-16 pb-0 md:pt-24 px-4 overflow-hidden relative">
     <!-- Abstract background elements -->
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-indigo-50 rounded-full blur-3xl opacity-50"></div>
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-slate-50 rounded-full blur-3xl opacity-50"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-slate-50 rounded-full blur-3xl opacity-50"></div>
 
-    <div class="max-w-5xl mx-auto text-center relative">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm font-medium mb-8 border border-slate-200">
-            <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            Plataforma en construcción
-        </div>
-        <div class="flex justify-center mb-8">
-            <img src="/logo.png" alt="Caribe Suite Logo" class="h-24 w-auto grayscale brightness-90" />
-        </div>
-        <h1 class="text-slate-900 text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            Caribe Suite
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-            La plataforma integral para gestionar tu negocio con facilidad y eficiencia.
-        </p>
-        <p class="text-lg text-slate-500 mb-12 max-w-2xl mx-auto">
-            Un sistema de gestión empresarial diseñado para simplificar la administración de tu empresa. Con una interfaz moderna y accesible desde cualquier dispositivo.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#features" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200 active:scale-95">
-                Ver módulos destacados
-            </a>
-            <a href="#about" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all active:scale-95">
-                Conocer más
-            </a>
-        </div>
-
-        <div class="mt-16 flex items-center justify-center gap-8 text-slate-400">
-            <div class="flex flex-col items-center">
-                <span class="text-2xl font-bold text-slate-700">100%</span>
-                <span class="text-xs uppercase tracking-wider">Cloud Ready</span>
+    <div class="max-w-6xl mx-auto relative">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm font-medium mb-8 border border-slate-200">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-slate-500"></span>
+                </span>
+                Plataforma en construcción
             </div>
-            <div class="h-8 w-px bg-slate-200"></div>
-            <div class="flex flex-col items-center">
-                <span class="text-2xl font-bold text-slate-700">Multi</span>
-                <span class="text-xs uppercase tracking-wider">Dispositivo</span>
+
+            <div class="flex justify-center mb-6">
+                <img src="/logo.png" alt="Caribe Suite Logo" class="h-16 w-auto" />
             </div>
-            <div class="h-8 w-px bg-slate-200"></div>
-            <div class="flex flex-col items-center">
-                <span class="text-2xl font-bold text-slate-700">Real-time</span>
-                <span class="text-xs uppercase tracking-wider">Sincronización</span>
+
+            <h1 class="text-slate-900 text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+                Caribe Suite
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-700 font-medium mb-6 max-w-3xl mx-auto leading-tight">
+                La plataforma integral para gestionar tu negocio con facilidad y eficiencia.
+            </p>
+            <p class="text-lg text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Caribe Suite es un sistema de gestión empresarial diseñado para simplificar la administración de tu empresa. Con una interfaz moderna y accesible desde cualquier dispositivo, combina contabilidad, inventario, punto de venta y control administrativo en una sola solución.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <a href="#features" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition-all shadow-lg active:scale-95">
+                    Ver módulos
+                </a>
+                <a href="#about" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all active:scale-95">
+                    Beneficios
+                </a>
+            </div>
+        </div>
+
+        <!-- App Mockup Display -->
+        <div class="relative max-w-5xl mx-auto">
+            <div class="bg-slate-200 rounded-t-3xl p-2 pb-0 shadow-2xl border border-slate-300 border-b-0">
+                <img src="/mockup-desktop.png" alt="Caribe Suite Dashboard" class="rounded-t-2xl w-full h-auto block shadow-inner" />
+            </div>
+
+            <!-- Mobile Mockup Floating -->
+            <div class="absolute -bottom-10 -right-4 md:-right-10 w-32 md:w-64 drop-shadow-2xl hidden sm:block">
+                <img src="/mockup-mobile.png" alt="Caribe Suite Mobile" class="w-full h-auto" />
             </div>
         </div>
     </div>
 </header>
+
+<div class="bg-slate-50 border-b border-slate-100 py-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-500">
+            <div class="flex items-center gap-4 justify-center md:justify-start">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                    <LayoutIcon size={24} class="text-slate-800" />
+                </div>
+                <div>
+                    <p class="font-bold text-slate-900">Interfaz Moderna</p>
+                    <p class="text-sm">Diseñada para la eficiencia</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 justify-center">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                    <Smartphone size={24} class="text-slate-800" />
+                </div>
+                <div>
+                    <p class="font-bold text-slate-900">Multi-dispositivo</p>
+                    <p class="text-sm">Accede desde cualquier lugar</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 justify-center md:justify-end">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                    <Zap size={24} class="text-slate-800" />
+                </div>
+                <div>
+                    <p class="font-bold text-slate-900">Rendimiento Fluido</p>
+                    <p class="text-sm">Tecnología web de vanguardia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
