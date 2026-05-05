@@ -1,56 +1,63 @@
 ---
 import FeatureCard from './FeatureCard.astro';
+import { Box, BarChart3, ShoppingCart, ShieldCheck } from '@lucide/astro';
 
 const features = [
     {
-        title: "Gestión de Inventario",
-        description: "Control completo de existencias y movimientos de mercancía.",
-        icon: "📦",
+        title: "Inventario",
+        description: "Control total de existencias, compras, ventas, ajustes y producción.",
+        icon: Box,
         items: [
-            "Administración de productos, compras, ventas.",
-            "Ajustes y traslados.",
-            "Generación e impresión de documentos.",
-            "Producción y transformación."
+            "Gestión de productos",
+            "Compras y Ventas",
+            "Ajustes de stock",
+            "Producción y transformación"
         ]
     },
     {
         title: "Contabilidad",
-        description: "Registro de asientos contables automáticos y manuales.",
-        icon: "📊",
+        description: "Estados financieros en tiempo real, cuentas por cobrar/pagar y plan de cuentas flexible.",
+        icon: BarChart3,
         items: [
-            "Estados financieros en tiempo real.",
-            "Cuentas por cobrar y por pagar.",
-            "Configuración flexible del plan de cuentas."
+            "Asientos automáticos",
+            "Reportes financieros",
+            "Control de cobros/pagos",
+            "Plan contable personalizable"
         ]
     },
     {
         title: "Punto de Venta (POS)",
-        description: "Interfaz optimizada para ventas rápidas.",
-        icon: "🛒",
+        description: "Interfaz optimizada para ventas rápidas, tickets y facturas, múltiples métodos de pago.",
+        icon: ShoppingCart,
         items: [
-            "Integración con múltiples métodos de pago.",
-            "Soporte para impresión de tickets y facturas.",
-            "Accesible desde cualquier dispositivo."
+            "Ventas rápidas",
+            "Impresión de tickets",
+            "Múltiples cajas/turnos",
+            "Pagos diversos"
         ]
     },
     {
-        title: "Control y Configuración",
-        description: "Administración detallada y puesta en marcha rápida.",
-        icon: "⚙️",
+        title: "Control Administrativo",
+        description: "Gestión de usuarios, roles, centros de costo, monedas y entidades.",
+        icon: ShieldCheck,
         items: [
-            "Gestión de usuarios y roles.",
-            "Centros de costo, monedas y entidades.",
-            "Asistente de configuración inicial (Setup Wizard)."
+            "Gestión de roles",
+            "Control de accesos",
+            "Multi-moneda",
+            "Configuración de entidades"
         ]
     }
 ];
 ---
 
-<section id="features" class="py-20 px-4">
+<section id="features" class="py-24 px-4 bg-white">
     <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Características Principales</h2>
-            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+        <div class="text-center mb-20">
+            <h2 class="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4">Módulos destacados</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">Todo lo que tu empresa necesita</h3>
+            <p class="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
+                Caribe Suite combina las herramientas esenciales en una sola solución integrada y fácil de usar.
+            </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
