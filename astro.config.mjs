@@ -8,6 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://javier.github.io/caribe-landing/",
+  site: "https://caribe-suite.github.io/caribe-landing/",
   base: "/caribe-landing/",
 });
