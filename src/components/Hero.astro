@@ -24,16 +24,23 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 
                     <!-- Color Filling Logo Container -->
                     <div class="absolute bottom-0 left-0 w-full overflow-hidden animate-fill-up">
-                        <!-- Wave Effect SVG Layer 1 -->
-                        <div class="absolute top-0 left-0 w-[200%] h-6 md:h-10 -translate-y-[60%] animate-wave-slide-slow z-20">
-                            <svg viewBox="0 0 100 20" preserveAspectRatio="none" class="w-full h-full fill-white/40">
-                                <path d="M0 10 C 20 0 30 0 50 10 C 70 20 80 20 100 10 V 20 H 0 Z" />
+                        <!-- Wave Layers from Reference -->
+                        <!-- Layer 1 -->
+                        <div class="absolute top-0 left-0 w-[400%] h-12 md:h-16 -translate-y-[80%] animate-wave-1 z-30">
+                            <svg viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-full fill-white/50">
+                                <path d="M 0 37.8889 C 97.3839 37.8889 128.352 -0.0783 253.95 0 C 379.202 0 410.515 37.8889 500 37.8889 L 500 100 L 0 100 Z M 500 37.8889 C 597.3839 37.8889 628.352 -0.0783 753.95 0 C 879.202 0 910.515 37.8889 1000 37.8889 L 1000 100 L 500 100 Z" />
                             </svg>
                         </div>
-                        <!-- Wave Effect SVG Layer 2 (Reverse & Offset) -->
-                        <div class="absolute top-0 left-[-50%] w-[200%] h-6 md:h-10 -translate-y-[55%] animate-wave-slide-fast z-10 opacity-60">
-                            <svg viewBox="0 0 100 20" preserveAspectRatio="none" class="w-full h-full fill-white/30">
-                                <path d="M0 10 C 20 20 30 20 50 10 C 70 0 80 0 100 10 V 20 H 0 Z" />
+                        <!-- Layer 2 -->
+                        <div class="absolute top-0 left-0 w-[400%] h-12 md:h-16 -translate-y-[80%] animate-wave-2 z-20">
+                            <svg viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-full fill-white/30">
+                                <path d="M 0 37.8889 C 97.3839 37.8889 128.352 -0.0783 253.95 0 C 379.202 0 410.515 37.8889 500 37.8889 L 500 100 L 0 100 Z M 500 37.8889 C 597.3839 37.8889 628.352 -0.0783 753.95 0 C 879.202 0 910.515 37.8889 1000 37.8889 L 1000 100 L 500 100 Z" />
+                            </svg>
+                        </div>
+                        <!-- Layer 3 -->
+                        <div class="absolute top-0 left-0 w-[400%] h-12 md:h-16 -translate-y-[80%] animate-wave-3 z-10">
+                            <svg viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-full fill-white/20">
+                                <path d="M 0 37.8889 C 97.3839 37.8889 128.352 -0.0783 253.95 0 C 379.202 0 410.515 37.8889 500 37.8889 L 500 100 L 0 100 Z M 500 37.8889 C 597.3839 37.8889 628.352 -0.0783 753.95 0 C 879.202 0 910.515 37.8889 1000 37.8889 L 1000 100 L 500 100 Z" />
                             </svg>
                         </div>
 
@@ -80,24 +87,28 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 <style>
     @keyframes fill-up {
         from { height: 0%; }
-        to { height: 80%; }
+        to { height: 90%; }
     }
 
-    @keyframes wave-slide {
-        from { transform: translateY(-60%) translateX(0); }
-        to { transform: translateY(-60%) translateX(-50%); }
+    @keyframes wave-motion {
+        from { transform: translateY(-80%) translateX(0); }
+        to { transform: translateY(-80%) translateX(-50%); }
     }
 
     .animate-fill-up {
         animation: fill-up 5s ease-in-out forwards;
     }
 
-    .animate-wave-slide-slow {
-        animation: wave-slide 4s linear infinite;
+    .animate-wave-1 {
+        animation: wave-motion 7s linear infinite;
     }
 
-    .animate-wave-slide-fast {
-        animation: wave-slide 3s linear infinite reverse;
+    .animate-wave-2 {
+        animation: wave-motion 11s linear infinite;
+    }
+
+    .animate-wave-3 {
+        animation: wave-motion 13s linear infinite;
     }
 </style>
 
