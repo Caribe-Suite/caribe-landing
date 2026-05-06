@@ -24,9 +24,18 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 
                     <!-- Color Filling Logo Container -->
                     <div class="absolute bottom-0 left-0 w-full overflow-hidden animate-fill-up">
-                        <!-- Liquid Surface Bubbles -->
-                        <div class="absolute top-0 right-0 w-12 md:w-16 h-12 md:h-16 bg-white/40 rounded-full animate-liquid-1 z-10"></div>
-                        <div class="absolute top-0 left-0 w-12 md:w-16 h-12 md:h-16 bg-white/40 rounded-full animate-liquid-2 z-10"></div>
+                        <!-- Wave Effect SVG Layer 1 -->
+                        <div class="absolute top-0 left-0 w-[200%] h-6 md:h-10 -translate-y-[60%] animate-wave-slide-slow z-20">
+                            <svg viewBox="0 0 100 20" preserveAspectRatio="none" class="w-full h-full fill-white/40">
+                                <path d="M0 10 C 20 0 30 0 50 10 C 70 20 80 20 100 10 V 20 H 0 Z" />
+                            </svg>
+                        </div>
+                        <!-- Wave Effect SVG Layer 2 (Reverse & Offset) -->
+                        <div class="absolute top-0 left-[-50%] w-[200%] h-6 md:h-10 -translate-y-[55%] animate-wave-slide-fast z-10 opacity-60">
+                            <svg viewBox="0 0 100 20" preserveAspectRatio="none" class="w-full h-full fill-white/30">
+                                <path d="M0 10 C 20 20 30 20 50 10 C 70 0 80 0 100 10 V 20 H 0 Z" />
+                            </svg>
+                        </div>
 
                         <!-- Colored Logo -->
                         <img src="/logo.png" alt="Caribe Suite Logo" class="h-32 md:h-48 w-auto max-w-none absolute bottom-0 left-0" />
@@ -69,48 +78,26 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 </header>
 
 <style>
-    :root {
-        --liquid-size: 3rem;
-        --liquid-offset: calc(var(--liquid-size) / -2.25);
-    }
-
     @keyframes fill-up {
         from { height: 0%; }
         to { height: 80%; }
     }
 
-    @keyframes liquid-1 {
-        0% { height: 0; opacity: 0; top: var(--liquid-offset); }
-        22% { height: calc(var(--liquid-size) * 0.25); top: calc(var(--liquid-offset) * -0.75); opacity: 1; }
-        25% { top: calc(var(--liquid-offset) * 0.5); }
-        35% { height: calc(var(--liquid-size) * 1); top: calc(var(--liquid-offset) * 1); }
-        55% { height: calc(var(--liquid-size) * 0.25); top: calc(var(--liquid-offset) * 0.25); }
-        60% { height: calc(var(--liquid-size) * 0.55); opacity: 1; top: calc(var(--liquid-offset) * 0.55); }
-        96% { height: calc(var(--liquid-size) * 0.75); opacity: 0; top: calc(var(--liquid-offset) * -1); }
-        100% { height: 0; opacity: 0; }
-    }
-
-    @keyframes liquid-2 {
-        0% { height: 0; opacity: 0; top: var(--liquid-offset); }
-        17.5% { height: calc(var(--liquid-size) * 0.25); top: calc(var(--liquid-offset) * -0.4); opacity: 1; }
-        20% { top: calc(var(--liquid-offset) * 0.5); }
-        25% { height: calc(var(--liquid-size) * 1.25); top: calc(var(--liquid-offset) * 1.25); }
-        45% { height: calc(var(--liquid-size) * 0.25); top: calc(var(--liquid-offset) * 0.25); }
-        60% { height: calc(var(--liquid-size) * 1.25); opacity: 1; top: var(--liquid-offset); }
-        96% { height: calc(var(--liquid-size) * 0.75); opacity: 0; top: calc(var(--liquid-offset) * -1); }
-        100% { height: 0; opacity: 0; }
+    @keyframes wave-slide {
+        from { transform: translateY(-60%) translateX(0); }
+        to { transform: translateY(-60%) translateX(-50%); }
     }
 
     .animate-fill-up {
-        animation: fill-up 4s ease-in-out forwards;
+        animation: fill-up 5s ease-in-out forwards;
     }
 
-    .animate-liquid-1 {
-        animation: liquid-1 2.25s infinite;
+    .animate-wave-slide-slow {
+        animation: wave-slide 4s linear infinite;
     }
 
-    .animate-liquid-2 {
-        animation: liquid-2 2.25s infinite;
+    .animate-wave-slide-fast {
+        animation: wave-slide 3s linear infinite reverse;
     }
 </style>
 
