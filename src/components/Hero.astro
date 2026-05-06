@@ -18,16 +18,16 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
             </div>
 
             <div class="flex justify-center mb-6">
-                <img src="/logo.png" alt="Caribe Suite Logo" class="h-16 w-auto" />
+                <img src="/logo.png" alt="Caribe Suite Logo" class="h-32 md:h-48 w-auto" />
             </div>
 
-            <h1 class="text-slate-900 text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            <h1 class="text-slate-900 text-3xl md:text-6xl font-extrabold mb-6 tracking-tight">
                 Caribe Suite
             </h1>
-            <p class="text-xl md:text-2xl text-slate-700 font-medium mb-6 max-w-3xl mx-auto leading-tight">
+            <p class="text-lg md:text-2xl text-slate-700 font-medium mb-6 max-w-3xl mx-auto leading-tight max-sm:text-left">
                 La plataforma integral para gestionar tu negocio con facilidad y eficiencia.
             </p>
-            <p class="text-lg text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-base md:text-lg text-slate-500 mb-10 max-w-3xl mx-auto leading-relaxed max-sm:text-left">
                 Caribe Suite es un sistema de gestión empresarial diseñado para simplificar la administración de tu empresa. Con una interfaz moderna y accesible desde cualquier dispositivo, combina contabilidad, inventario, punto de venta y control administrativo en una sola solución.
             </p>
 
@@ -43,13 +43,13 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 
         <!-- App Mockup Display -->
         <div class="relative max-w-5xl mx-auto">
-            <div class="bg-slate-200 rounded-t-3xl p-2 pb-0 shadow-2xl border border-slate-300 border-b-0">
-                <img src="/mockup-desktop.png" alt="Caribe Suite Dashboard" class="rounded-t-2xl w-full h-auto block shadow-inner" />
+            <div class="bg-slate-200 rounded-t-xl md:rounded-t-3xl p-1 md:p-2 pb-0 shadow-2xl border border-slate-300 border-b-0">
+                <img src="/mockup-desktop.png" alt="Caribe Suite Dashboard" class="rounded-t-xl md:rounded-t-2xl w-full h-auto block shadow-inner" />
             </div>
 
             <!-- Mobile Mockup Floating -->
-            <div class="absolute -bottom-10 -right-4 md:-right-10 w-32 md:w-64 drop-shadow-2xl hidden sm:block">
-                <img src="/mockup-mobile.png" alt="Caribe Suite Mobile" class="w-full h-auto" />
+            <div class="absolute -bottom-6 -right-2 sm:-bottom-10 sm:-right-4 md:-right-10 w-24 sm:w-48 md:w-64 drop-shadow-2xl">
+                <img src="/mockup-mobile.webp" alt="Caribe Suite Mobile" class="w-full h-auto" />
             </div>
         </div>
     </div>
@@ -57,9 +57,9 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
 
 <div class="bg-slate-50 border-b border-slate-100 py-8">
     <div class="max-w-6xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-500">
-            <div class="flex items-center gap-4 justify-center md:justify-start">
-                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-500 max-sm:max-w-xs max-sm:mx-auto">
+            <div class="flex items-center gap-4 justify-start md:justify-start">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm shrink-0">
                     <LayoutIcon size={24} class="text-slate-800" />
                 </div>
                 <div>
@@ -67,8 +67,8 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
                     <p class="text-sm">Diseñada para la eficiencia</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 justify-center">
-                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-4 justify-start md:justify-center">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm shrink-0">
                     <Smartphone size={24} class="text-slate-800" />
                 </div>
                 <div>
@@ -76,8 +76,8 @@ import { Smartphone, Layout as LayoutIcon, Zap } from '@lucide/astro';
                     <p class="text-sm">Accede desde cualquier lugar</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 justify-center md:justify-end">
-                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-4 justify-start md:justify-end">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm shrink-0">
                     <Zap size={24} class="text-slate-800" />
                 </div>
                 <div>
