@@ -1,0 +1,43 @@
+---
+const videos = [
+    {
+        title: "Configuración inicial del sistema",
+        description: "Configuración básica para poner en marcha el sistema",
+        videoId: "jNQXAC9IVRw"
+    }
+];
+---
+
+<section id="manual" class="py-24 px-4 bg-white border-y border-slate-100">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider">Manual de Usuario</h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed max-sm:text-left max-sm:text-base">
+                Próximamente encontrarás aquí nuestros <strong class="text-slate-700">video‑tutoriales</strong>, diseñados para guiarte paso a paso en el uso del sistema.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.map(video => (
+                <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="aspect-video bg-slate-100">
+                        <iframe
+                            class="w-full h-full"
+                            src={`https://www.youtube.com/embed/${video.videoId}`}
+                            title={video.title}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">{video.title}</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed max-sm:text-left">
+                            {video.description}
+                        </p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
