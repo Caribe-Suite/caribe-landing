@@ -14,9 +14,9 @@ const videos = [
 <section id="manual" class="py-24 px-4 bg-white border-b border-slate-100">
   <div class="max-w-6xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div class="text-center max-sm:text-left mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider">Manual de Usuario</h2>
-      <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-slate-500 text-lg max-w-2xl mx-auto max-sm:mx-0 leading-relaxed">
         Aquí aparecerán los <strong>video‑tutoriales</strong> del sistema, organizados
         para guiarte paso a paso en cada proceso.
       </p>
@@ -50,7 +50,7 @@ const videos = [
       </aside>
 
       <!-- Horizontal Gallery -->
-      <div class="flex-1 min-w-0 relative group/gallery">
+      <div class="w-full lg:flex-1 min-w-0 relative group/gallery">
         <div
           id="gallery-track"
           class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent"
@@ -87,14 +87,14 @@ const videos = [
         <!-- Navigation arrows -->
         <button
           id="btn-prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
           aria-label="Anterior"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           id="btn-next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
           aria-label="Siguiente"
         >
           <ChevronRight size={20} />
