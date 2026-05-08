@@ -1,5 +1,5 @@
 ---
-import { ChevronLeft, ChevronRight } from '@lucide/astro';
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
 
 const videos = [
   {
@@ -15,8 +15,14 @@ const videos = [
   <div class="max-w-6xl mx-auto">
     <!-- Header -->
     <div class="text-center max-sm:text-left mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider">Manual de Usuario</h2>
-      <p class="text-slate-500 text-lg max-w-2xl mx-auto max-sm:mx-0 leading-relaxed">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 uppercase tracking-wider"
+      >
+        Manual de Usuario
+      </h2>
+      <p
+        class="text-slate-500 text-lg max-w-2xl mx-auto max-sm:mx-0 leading-relaxed"
+      >
         Aquí aparecerán los <strong>video‑tutoriales</strong> del sistema, organizados
         para guiarte paso a paso en cada proceso.
       </p>
@@ -25,10 +31,18 @@ const videos = [
     <!-- Body: sidebar + gallery -->
     <div class="flex flex-col lg:flex-row gap-8 items-start">
       <!-- Table of Contents -->
-      <aside class="w-full lg:w-64 shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:sticky lg:top-8 overflow-y-auto max-h-[calc(100vh-4rem)]">
-        <p class="text-[10px] font-bold tracking-[0.1em] uppercase text-slate-400 mb-4 px-2">Contenido</p>
+      <aside
+        class="w-full lg:w-64 shrink-0 bg-slate-50 border border-slate-200 rounded-2xl p-4 lg:sticky lg:top-8 overflow-y-auto max-h-[calc(100vh-4rem)]"
+      >
+        <p
+          class="text-[10px] font-bold tracking-[0.1em] uppercase text-slate-400 mb-4 px-2"
+        >
+          Contenido
+        </p>
         <nav>
-          <ol class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-none">
+          <ol
+            class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-none"
+          >
             {
               videos.map((video, i) => (
                 <li class="shrink-0 lg:shrink">
@@ -40,7 +54,9 @@ const videos = [
                     <span class="text-[10px] font-bold opacity-40 group-[.active]:opacity-100 font-mono">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span class="text-sm font-medium leading-snug">{video.title}</span>
+                    <span class="text-sm font-medium leading-snug">
+                      {video.title}
+                    </span>
                   </a>
                 </li>
               ))
@@ -76,8 +92,12 @@ const videos = [
                   <span class="inline-block text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2 font-mono">
                     Tutorial {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">{video.title}</h3>
-                  <p class="text-sm text-slate-600 leading-relaxed">{video.description}</p>
+                  <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">
+                    {video.title}
+                  </h3>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    {video.description}
+                  </p>
                 </div>
               </article>
             ))
@@ -113,7 +133,10 @@ const videos = [
               ))
             }
           </div>
-          <div class="text-xs font-bold text-slate-400 font-mono tracking-tighter" id="gallery-counter">
+          <div
+            class="text-xs font-bold text-slate-400 font-mono tracking-tighter"
+            id="gallery-counter"
+          >
             <span id="counter-current" class="text-slate-900">1</span>
             <span class="mx-0.5 opacity-30">/</span>
             <span>{videos.length}</span>
@@ -127,12 +150,24 @@ const videos = [
 <style>
   @reference "../styles/global.css";
 
-  .scrollbar-none::-webkit-scrollbar { display: none; }
-  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-  .scrollbar-thin::-webkit-scrollbar { height: 4px; }
-  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
 
   .toc-link.active {
     @apply bg-slate-900 text-white shadow-md;
@@ -169,7 +204,9 @@ const videos = [
 
   function updateActive() {
     dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
-    tocLinks.forEach((l, i) => l.classList.toggle("active", i === currentIndex));
+    tocLinks.forEach((l, i) =>
+      l.classList.toggle("active", i === currentIndex),
+    );
     if (counterCurrent) counterCurrent.textContent = String(currentIndex + 1);
 
     btnPrev.disabled = currentIndex === 0;
