@@ -1,0 +1,31 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["relative", className]}>
+  {/* Smartphone Frame Outer */}
+  <div class="relative bg-slate-900 rounded-[2.5rem] p-2.5 shadow-2xl border-4 border-slate-800 ring-1 ring-white/10 overflow-hidden">
+
+    {/* Internal Speaker/Notch Area */}
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-b-2xl z-20 flex justify-center items-start pt-1">
+      <div class="w-10 h-1 bg-slate-800 rounded-full"></div>
+    </div>
+
+    {/* Screen Container */}
+    <div class="relative bg-white rounded-[1.8rem] overflow-hidden border border-slate-800/50">
+      <slot />
+    </div>
+
+    {/* Reflection/Glass Effect Overlay */}
+    <div class="absolute inset-0 pointer-events-none rounded-[2.5rem] bg-gradient-to-tr from-white/5 to-transparent opacity-30 z-30"></div>
+  </div>
+
+  {/* Side Buttons */}
+  <div class="absolute -right-1.5 top-24 w-1.5 h-16 bg-slate-800 rounded-l-md border-y border-l border-slate-700/50 shadow-sm z-10"></div>
+  <div class="absolute -left-1.5 top-32 w-1.5 h-12 bg-slate-800 rounded-r-md border-y border-r border-slate-700/50 shadow-sm z-10"></div>
+  <div class="absolute -left-1.5 top-48 w-1.5 h-12 bg-slate-800 rounded-r-md border-y border-r border-slate-700/50 shadow-sm z-10"></div>
+</div>
