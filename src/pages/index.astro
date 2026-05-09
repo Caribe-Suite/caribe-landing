@@ -51,7 +51,7 @@ const targets = [
 ---
 
 <Layout title="Caribe Suite - Gestión Empresarial">
-	<main>
+	<main id="main-content">
 		<Hero />
 
 		<!-- Benefits Section -->
@@ -108,13 +108,17 @@ const targets = [
 				<div class="relative max-w-5xl mx-auto">
 					<!-- Blur Overlay -->
 					<div class="absolute inset-0 z-10 bg-white/40 backdrop-blur-[2px] flex items-center justify-center rounded-3xl">
-						<div class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl border border-slate-800 text-center transform -rotate-1">
+						<div
+							class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl border border-slate-800 text-center transform -rotate-1"
+							role="status"
+							aria-label="Planes de precios próximamente"
+						>
 							<span class="font-bold text-xl block">Próximamente</span>
 							<span class="text-slate-400 text-sm">Estamos afinando los detalles</span>
 						</div>
 					</div>
 
-					<div class="grid md:grid-cols-3 gap-8 opacity-30 select-none grayscale">
+					<div class="grid md:grid-cols-3 gap-8 opacity-30 select-none grayscale" aria-hidden="true">
 						<div class="bg-white p-8 rounded-3xl border border-slate-200">
 							<h3 class="text-xl font-bold mb-4">Básico</h3>
 							<div class="text-4xl font-bold mb-6">$00<span class="text-lg font-normal text-slate-400">/mes</span></div>

@@ -209,10 +209,24 @@ const videos = [
   }
 
   function updateActive() {
-    dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
-    tocLinks.forEach((l, i) =>
-      l.classList.toggle("active", i === currentIndex),
-    );
+    dots.forEach((d, i) => {
+      const isActive = i === currentIndex;
+      d.classList.toggle("active", isActive);
+      if (isActive) {
+        d.setAttribute("aria-current", "true");
+      } else {
+        d.removeAttribute("aria-current");
+      }
+    });
+    tocLinks.forEach((l, i) => {
+      const isActive = i === currentIndex;
+      l.classList.toggle("active", isActive);
+      if (isActive) {
+        l.setAttribute("aria-current", "true");
+      } else {
+        l.removeAttribute("aria-current");
+      }
+    });
     if (counterCurrent) counterCurrent.textContent = String(currentIndex + 1);
 
     btnPrev.disabled = currentIndex === 0;
