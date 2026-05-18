@@ -54,7 +54,7 @@ const videos = [
                 <li class="shrink-0 lg:shrink">
                   <a
                     href={`#video-${i}`}
-                    class="toc-link flex items-baseline gap-3 px-3 py-2 rounded-xl text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all whitespace-nowrap lg:whitespace-normal group"
+                    class="toc-link flex items-baseline gap-3 px-3 py-2 rounded-xl text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all whitespace-nowrap lg:whitespace-normal group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
                     data-index={i}
                   >
                     <span class="text-[10px] font-bold opacity-40 group-[.active]:opacity-100 font-mono">
@@ -113,14 +113,16 @@ const videos = [
         <!-- Navigation arrows -->
         <button
           id="btn-prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 focus:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 z-10"
           aria-label="Anterior"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           id="btn-next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 focus:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 z-10"
           aria-label="Siguiente"
         >
           <ChevronRight size={20} />
@@ -132,7 +134,8 @@ const videos = [
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
+                  type="button"
+                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400 p-2 bg-clip-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
                   data-dot={i}
                   aria-label={`Ir al video ${i + 1}`}
                 />
