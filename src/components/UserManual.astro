@@ -113,26 +113,29 @@ const videos = [
         <!-- Navigation arrows -->
         <button
           id="btn-prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 focus:opacity-100 focus-visible:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
           aria-label="Anterior"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={20} aria-hidden="true" />
         </button>
         <button
           id="btn-next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 focus:opacity-100 focus-visible:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
           aria-label="Siguiente"
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={20} aria-hidden="true" />
         </button>
 
         <!-- Dots & Counter -->
         <div class="flex items-center justify-between mt-6">
-          <div id="gallery-dots" class="flex gap-1.5">
+          <div id="gallery-dots" class="flex gap-1">
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
+                  type="button"
+                  class="dot w-5 h-5 rounded-full bg-slate-200 transition-all hover:bg-slate-400 p-[7px] bg-clip-content focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
                   data-dot={i}
                   aria-label={`Ir al video ${i + 1}`}
                 />
@@ -180,7 +183,7 @@ const videos = [
   }
 
   .dot.active {
-    @apply bg-slate-900 w-4;
+    @apply bg-slate-900 w-8;
   }
 </style>
 
@@ -229,8 +232,18 @@ const videos = [
     });
     if (counterCurrent) counterCurrent.textContent = String(currentIndex + 1);
 
-    btnPrev.disabled = currentIndex === 0;
-    btnNext.disabled = currentIndex === dots.length - 1;
+    if (btnPrev) {
+      btnPrev.disabled = currentIndex === 0;
+      if (btnPrev.disabled && document.activeElement === btnPrev) {
+        btnPrev.blur();
+      }
+    }
+    if (btnNext) {
+      btnNext.disabled = currentIndex === dots.length - 1;
+      if (btnNext.disabled && document.activeElement === btnNext) {
+        btnNext.blur();
+      }
+    }
   }
 
   btnPrev?.addEventListener("click", () => scrollToIndex(currentIndex - 1));
