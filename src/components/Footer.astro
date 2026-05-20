@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
         <div class="grid md:grid-cols-3 gap-12 mb-12">
             <div>
                 <div class="flex items-center gap-3 mb-4">
-                    <img src={logo.src} alt="Logo" class="h-8 w-auto" />
+                    <img src={logo.src} alt="" class="h-8 w-auto" />
                     <span class="text-xl font-bold text-white tracking-tight">Caribe Suite</span>
                 </div>
                 <p class="text-slate-500 leading-relaxed">
@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
             <div class="grid grid-cols-2 gap-8 md:col-span-2">
                 <div>
                     <h4 class="text-white font-bold mb-4 flex items-center gap-2 uppercase tracking-wider text-xs">
-                        <Globe size={16} class="text-slate-500" />
+                        <Globe size={16} class="text-slate-500" aria-hidden="true" />
                         Producto
                     </h4>
                     <ul class="space-y-2">
@@ -31,12 +31,12 @@ const year = new Date().getFullYear();
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4 flex items-center gap-2 uppercase tracking-wider text-xs">
-                        <Shield size={16} class="text-slate-500" />
+                        <Shield size={16} class="text-slate-500" aria-hidden="true" />
                         Soporte
                     </h4>
                     <ul class="space-y-2">
-                        <li><a href="https://wa.me/5354474745" class="hover:text-blue-400 transition-colors">WhatsApp: +53 54474745</a></li>
-                        <li><a href="mailto:javierbr08@gmail.com" class="hover:text-blue-400 transition-colors">javierbr08@gmail.com</a></li>
+                        <li><a href="https://wa.me/5354474745" class="hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp al +53 54474745 (abre en una nueva pestaña)">WhatsApp: +53 54474745</a></li>
+                        <li><a href="mailto:javierbr08@gmail.com" class="hover:text-blue-400 transition-colors" aria-label="Enviar un correo electrónico a javierbr08@gmail.com">javierbr08@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
