@@ -113,29 +113,34 @@ const videos = [
         <!-- Navigation arrows -->
         <button
           id="btn-prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
           aria-label="Anterior"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={20} aria-hidden="true" />
         </button>
         <button
           id="btn-next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
+          type="button"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
           aria-label="Siguiente"
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={20} aria-hidden="true" />
         </button>
 
         <!-- Dots & Counter -->
         <div class="flex items-center justify-between mt-6">
-          <div id="gallery-dots" class="flex gap-1.5">
+          <div id="gallery-dots" class="flex items-center gap-0">
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
+                  type="button"
+                  class="dot-container w-8 h-8 -mx-1 flex items-center justify-center group focus-visible:outline-none"
                   data-dot={i}
                   aria-label={`Ir al video ${i + 1}`}
-                />
+                >
+                  <span class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all group-hover:bg-slate-400 group-focus-visible:ring-2 group-focus-visible:ring-slate-900 group-focus-visible:ring-offset-4" />
+                </button>
               ))
             }
           </div>
@@ -179,7 +184,7 @@ const videos = [
     @apply bg-slate-900 text-white shadow-md;
   }
 
-  .dot.active {
+  .dot-container.active .dot {
     @apply bg-slate-900 w-4;
   }
 </style>
@@ -188,7 +193,7 @@ const videos = [
   const track = document.getElementById("gallery-track") as HTMLElement;
   const btnPrev = document.getElementById("btn-prev") as HTMLButtonElement;
   const btnNext = document.getElementById("btn-next") as HTMLButtonElement;
-  const dots = document.querySelectorAll<HTMLButtonElement>(".dot");
+  const dotContainers = document.querySelectorAll<HTMLButtonElement>(".dot-container");
   const tocLinks = document.querySelectorAll<HTMLAnchorElement>(".toc-link");
   const counterCurrent = document.getElementById("counter-current");
 
@@ -209,7 +214,7 @@ const videos = [
   }
 
   function updateActive() {
-    dots.forEach((d, i) => {
+    dotContainers.forEach((d, i) => {
       const isActive = i === currentIndex;
       d.classList.toggle("active", isActive);
       if (isActive) {
@@ -236,7 +241,7 @@ const videos = [
   btnPrev?.addEventListener("click", () => scrollToIndex(currentIndex - 1));
   btnNext?.addEventListener("click", () => scrollToIndex(currentIndex + 1));
 
-  dots.forEach((dot, i) =>
+  dotContainers.forEach((dot, i) =>
     dot.addEventListener("click", () => scrollToIndex(i)),
   );
 
