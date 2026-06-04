@@ -128,14 +128,17 @@ const videos = [
 
         <!-- Dots & Counter -->
         <div class="flex items-center justify-between mt-6">
-          <div id="gallery-dots" class="flex gap-1.5">
+          <div id="gallery-dots" class="flex gap-0">
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
+                  class="dot group/dot w-8 h-8 flex items-center justify-center -mx-1 shrink-0"
                   data-dot={i}
                   aria-label={`Ir al video ${i + 1}`}
-                />
+                  type="button"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-200 transition-all group-hover/dot:bg-slate-400" />
+                </button>
               ))
             }
           </div>
@@ -179,7 +182,7 @@ const videos = [
     @apply bg-slate-900 text-white shadow-md;
   }
 
-  .dot.active {
+  .dot.active span {
     @apply bg-slate-900 w-4;
   }
 </style>
