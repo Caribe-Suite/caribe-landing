@@ -54,7 +54,7 @@ const videos = [
                 <li class="shrink-0 lg:shrink">
                   <a
                     href={`#video-${i}`}
-                    class="toc-link flex items-baseline gap-3 px-3 py-2 rounded-xl text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all whitespace-nowrap lg:whitespace-normal group"
+                    class="toc-link flex items-baseline gap-3 px-3 py-2 rounded-xl text-slate-500 hover:bg-slate-200/50 hover:text-slate-900 transition-all whitespace-nowrap lg:whitespace-normal group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
                     data-index={i}
                   >
                     <span class="text-[10px] font-bold opacity-40 group-[.active]:opacity-100 font-mono">
@@ -113,29 +113,34 @@ const videos = [
         <!-- Navigation arrows -->
         <button
           id="btn-prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 lg:group-hover/gallery:-translate-x-5 transition-all disabled:opacity-0 z-10"
           aria-label="Anterior"
+          type="button"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           id="btn-next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg hidden md:flex items-center justify-center text-slate-900 opacity-0 group-hover/gallery:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 lg:group-hover/gallery:translate-x-5 transition-all disabled:opacity-0 z-10"
           aria-label="Siguiente"
+          type="button"
         >
           <ChevronRight size={20} />
         </button>
 
         <!-- Dots & Counter -->
         <div class="flex items-center justify-between mt-6">
-          <div id="gallery-dots" class="flex gap-1.5">
+          <div id="gallery-dots" class="flex gap-0">
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
-                  data-dot={i}
+                  class="dot-container w-8 h-8 -mx-1 flex items-center justify-center group/dot focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 rounded-full transition-all"
+                  data-index={i}
                   aria-label={`Ir al video ${i + 1}`}
-                />
+                  type="button"
+                >
+                  <span class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all group-hover/dot:bg-slate-400" />
+                </button>
               ))
             }
           </div>
@@ -179,7 +184,7 @@ const videos = [
     @apply bg-slate-900 text-white shadow-md;
   }
 
-  .dot.active {
+  .dot-container.active .dot {
     @apply bg-slate-900 w-4;
   }
 </style>
@@ -188,7 +193,7 @@ const videos = [
   const track = document.getElementById("gallery-track") as HTMLElement;
   const btnPrev = document.getElementById("btn-prev") as HTMLButtonElement;
   const btnNext = document.getElementById("btn-next") as HTMLButtonElement;
-  const dots = document.querySelectorAll<HTMLButtonElement>(".dot");
+  const dotContainers = document.querySelectorAll<HTMLButtonElement>(".dot-container");
   const tocLinks = document.querySelectorAll<HTMLAnchorElement>(".toc-link");
   const counterCurrent = document.getElementById("counter-current");
 
@@ -203,13 +208,13 @@ const videos = [
   }
 
   function scrollToIndex(index: number) {
-    currentIndex = Math.max(0, Math.min(index, dots.length - 1));
+    currentIndex = Math.max(0, Math.min(index, dotContainers.length - 1));
     track.scrollTo({ left: currentIndex * getCardWidth(), behavior: "smooth" });
     updateActive();
   }
 
   function updateActive() {
-    dots.forEach((d, i) => {
+    dotContainers.forEach((d, i) => {
       const isActive = i === currentIndex;
       d.classList.toggle("active", isActive);
       if (isActive) {
@@ -230,13 +235,13 @@ const videos = [
     if (counterCurrent) counterCurrent.textContent = String(currentIndex + 1);
 
     btnPrev.disabled = currentIndex === 0;
-    btnNext.disabled = currentIndex === dots.length - 1;
+    btnNext.disabled = currentIndex === dotContainers.length - 1;
   }
 
   btnPrev?.addEventListener("click", () => scrollToIndex(currentIndex - 1));
   btnNext?.addEventListener("click", () => scrollToIndex(currentIndex + 1));
 
-  dots.forEach((dot, i) =>
+  dotContainers.forEach((dot, i) =>
     dot.addEventListener("click", () => scrollToIndex(i)),
   );
 
