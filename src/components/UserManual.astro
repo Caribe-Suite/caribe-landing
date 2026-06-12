@@ -128,14 +128,17 @@ const videos = [
 
         <!-- Dots & Counter -->
         <div class="flex items-center justify-between mt-6">
-          <div id="gallery-dots" class="flex gap-1.5">
+          <div id="gallery-dots" class="flex items-center -mx-1">
             {
               videos.map((_, i) => (
                 <button
-                  class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all hover:bg-slate-400"
+                  class="dot-container group/dot w-8 h-8 flex items-center justify-center transition-all"
                   data-dot={i}
                   aria-label={`Ir al video ${i + 1}`}
-                />
+                  type="button"
+                >
+                  <span class="dot w-1.5 h-1.5 rounded-full bg-slate-200 transition-all group-hover/dot:bg-slate-400 group-[.active]/dot:bg-slate-900 group-[.active]/dot:w-4" />
+                </button>
               ))
             }
           </div>
@@ -179,20 +182,18 @@ const videos = [
     @apply bg-slate-900 text-white shadow-md;
   }
 
-  .dot.active {
-    @apply bg-slate-900 w-4;
-  }
 </style>
 
 <script>
   const track = document.getElementById("gallery-track") as HTMLElement;
   const btnPrev = document.getElementById("btn-prev") as HTMLButtonElement;
   const btnNext = document.getElementById("btn-next") as HTMLButtonElement;
-  const dots = document.querySelectorAll<HTMLButtonElement>(".dot");
+  const dotContainers = document.querySelectorAll<HTMLButtonElement>(".dot-container");
   const tocLinks = document.querySelectorAll<HTMLAnchorElement>(".toc-link");
   const counterCurrent = document.getElementById("counter-current");
 
   let currentIndex = 0;
+  let isScrolling = false;
 
   function getCardWidth(): number {
     const card = track.querySelector<HTMLElement>(".video-card");
@@ -203,13 +204,15 @@ const videos = [
   }
 
   function scrollToIndex(index: number) {
-    currentIndex = Math.max(0, Math.min(index, dots.length - 1));
+    currentIndex = Math.max(0, Math.min(index, dotContainers.length - 1));
+    isScrolling = true;
     track.scrollTo({ left: currentIndex * getCardWidth(), behavior: "smooth" });
     updateActive();
+    setTimeout(() => { isScrolling = false; }, 800);
   }
 
   function updateActive() {
-    dots.forEach((d, i) => {
+    dotContainers.forEach((d, i) => {
       const isActive = i === currentIndex;
       d.classList.toggle("active", isActive);
       if (isActive) {
@@ -230,13 +233,13 @@ const videos = [
     if (counterCurrent) counterCurrent.textContent = String(currentIndex + 1);
 
     btnPrev.disabled = currentIndex === 0;
-    btnNext.disabled = currentIndex === dots.length - 1;
+    btnNext.disabled = currentIndex === dotContainers.length - 1;
   }
 
   btnPrev?.addEventListener("click", () => scrollToIndex(currentIndex - 1));
   btnNext?.addEventListener("click", () => scrollToIndex(currentIndex + 1));
 
-  dots.forEach((dot, i) =>
+  dotContainers.forEach((dot, i) =>
     dot.addEventListener("click", () => scrollToIndex(i)),
   );
 
@@ -249,6 +252,7 @@ const videos = [
 
   let scrollTimer: ReturnType<typeof setTimeout>;
   track?.addEventListener("scroll", () => {
+    if (isScrolling) return;
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
       const cw = getCardWidth();
