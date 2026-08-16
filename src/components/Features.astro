@@ -1,6 +1,6 @@
 ---
 import FeatureCard from './FeatureCard.astro';
-import { Box, BarChart3, ShoppingCart, ShieldCheck } from '@lucide/astro';
+import { Box, BarChart3, ShoppingCart, ShieldCheck, Bot } from '@lucide/astro';
 
 const features = [
     {
@@ -46,6 +46,17 @@ const features = [
             "Multi-moneda",
             "Configuración de entidades"
         ]
+    },
+    {
+        title: "Asistente Virtual Inteligente",
+        description: "Asistente integrado para solicitar información del sistema o ejecutar acciones mediante chat.",
+        icon: Bot,
+        items: [
+            "Consultas de inventario y stock",
+            "Ejecución de acciones del sistema",
+            "Atención y ayuda integrada",
+            "Respuestas rápidas e interactivas"
+        ]
     }
 ];
 ---
@@ -59,7 +70,7 @@ const features = [
             </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map(feature => (
                 <FeatureCard {...feature} />
             ))}
